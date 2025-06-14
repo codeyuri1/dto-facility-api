@@ -20,7 +20,7 @@ Uma API desenvolvida em Spring Boot que converte JSONs dinâmicos em **DTOs Java
 ### Instruções de Uso:
 
 - Enviar um JSON via **POST** para o endpoint `/api/dto` para gerar um DTO ou Record.
-exemplo de JSON:
+- Exemplo de JSON:
 
 ```json
 {
