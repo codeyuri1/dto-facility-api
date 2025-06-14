@@ -15,7 +15,7 @@ public class DTOGeneratorService {
 
     public String generateDTO(JsonNode jsonInput, String className) throws CustomException {
 
-        if (!(jsonInput instanceof JsonNode objectNode)) {
+        if (!(jsonInput instanceof ObjectNode objectNode)) {
             throw new CustomException("JSON de entrada deve ser um objeto JSON válido.");
         }
 
