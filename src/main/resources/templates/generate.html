@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>DTO Facility - JSON to DTO/Record Generator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 40px;
+        }
+        .form-section {
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        .result-box, .error-box {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background-color: #f1f3f5;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="text-center mb-4">
+        <div class="logo">DTO Facility 🚀</div>
+        <p class="text-muted">Gere DTOs ou Records Java diretamente de JSON</p>
+    </div>
+
+    <div class="form-section">
+        <form th:action="@{/thymeleaf/generateDTO}" method="post">
+            <h5>Gerar DTO (POJO)</h5>
+
+            <div class="mb-3">
+                <label class="form-label">Nome da Classe:</label>
+                <input type="text" name="className" class="form-control" placeholder="Ex: MeuDTO">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">JSON de Entrada:</label>
+                <textarea name="json" rows="8" class="form-control" placeholder='Ex: { "nome": "Yuri", "idade": 30 }'></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Gerar DTO</button>
+        </form>
+    </div>
+
+    <div class="form-section">
+        <form th:action="@{/thymeleaf/generateRecord}" method="post">
+            <h5>Gerar Record</h5>
+
+            <div class="mb-3">
+                <label class="form-label">Nome da Classe:</label>
+                <input type="text" name="className" class="form-control" placeholder="Ex: MeuRecord">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">JSON de Entrada:</label>
+                <textarea name="json" rows="8" class="form-control" placeholder='Ex: { "nome": "Yuri", "idade": 30 }'></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Gerar Record</button>
+        </form>
+    </div>
+
+    <div th:if="${result}" class="form-section">
+        <h5>Resultado:</h5>
+        <div class="result-box" th:text="${result}"></div>
+    </div>
+
+    <div th:if="${error}" class="form-section">
+        <h5 class="text-danger">Erro:</h5>
+        <div class="error-box text-danger" th:text="${error}"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

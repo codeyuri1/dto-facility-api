@@ -1,0 +1,25 @@
+# Ignore build output
+/build
+/.gradle
+/.idea
+/out
+/.settings
+/.vscode
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+
+# Ignore Git
+.git
+.gitignore
+
+# Ignore test reports
+/reports
+/test-output
+
+# Ignore node_modules caso algum dev use frontend acoplado
+node_modules
